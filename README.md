@@ -49,14 +49,14 @@ Example of a module object:
 
 ```javascript
 
-function train()
+function train(network)
 {
-
+  //[training code]
 }
 
 function init()
 {
-
+  //[init code]
 }
 
 let module = new NeuralNetwork.TrainingModule(init, train, "trainingModuleExample");
