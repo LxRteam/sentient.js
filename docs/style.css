@@ -1,0 +1,18 @@
+body
+{
+    background-image: url("./background.jpg");
+    background-size: cover;
+    background-position-x: center;
+    background-attachment: fixed;
+}
+
+#container
+{
+    position: relative;
+    background-color:#151515;
+    color:white;
+    width: 70%;
+    margin: auto;
+    top: 500px;
+    height: 1000px;
+}
