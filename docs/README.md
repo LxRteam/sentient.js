@@ -1,1 +1,0 @@
-# sentient.js
