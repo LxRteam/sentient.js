@@ -31,6 +31,21 @@ function NeuralNetwork(layerSizes)
         {
             output[i] = layers[layers.length-1][i].compute();
         }
+        return output;
+    };
+
+    this.trainingModule = undefined;
+
+    this.setTrainingModule = function(trainingModule)
+    {
+        this.trainingModule = trainingModule;
+        this.trainingModule.network = this;
+    };
+
+    this.train = function()
+    {
+        if (trainingModule)
+            trainingModule.train();
     };
 }
 
