@@ -7,7 +7,7 @@ A modular neural network library made in Javascript.
 
 ### Creating a network object
 
-A nueral network object can be made like this.
+A neural network object can be made like this.
 
 ```javascript
 let network = new NeuralNetwork([3, 4, 2]);
@@ -18,6 +18,41 @@ The parameters of the constructor state the layer sizes in a neural network. The
 ![Neural Network Image](https://upload.wikimedia.org/wikipedia/commons/4/46/Colored_neural_network.svg)
 
 By Glosser.ca [CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons
+
+### Activation function
+
+The network defaults to a logistic function for the activation function. 
+You can set the activation function by setting ``network.activationFunction``
+
+Example:
+
+ReLU activation function
+
+```javascript
+network.activationFunction = function(input)
+{
+  return max(input,0);
+};
+```
+
+### Modifying weights and biases
+
+To access nodes in the network there is an array called ``layers`` which can be accessed like the following:
+
+```javascript
+let node = network.layers[layer][node];
+```
+
+``layer`` is which layer is being accessed, and ``node`` is which node in that layer.
+
+#### Node class
+  
+Properties:
+  - ``layer``   (The layer the node is in)
+  - ``bias``    (The node's bias)
+  - ``weights`` (An array containing the weights of the previous layer's node outputs)
+  - ``value``   (The computed value. 0 if compute is not called)
+
 
 ### Running the network
 
