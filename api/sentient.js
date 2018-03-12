@@ -68,7 +68,7 @@ NeuralNetwork.Node = function(network, layer)
         for (let i = 0; i < network.layers[this.layer-1].length; i++)
         {
             let weight = this.weights[i];
-            this.value += network.layers[this.layer-1].compute() * weight;
+            this.value += network.layers[this.layer-1][i].compute() * weight;
         }
 
         return this.value;
