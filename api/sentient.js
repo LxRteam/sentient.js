@@ -75,8 +75,12 @@ NeuralNetwork.Node = function(network, layer)
     };
 };
 
-NeuralNetwork.TrainingModule = function(init, trainFunction)
+NeuralNetwork.Modules = [];
+
+NeuralNetwork.TrainingModule = function(init, trainFunction, moduleId)
 {
+    NeuralNetwork.Modules[moduleId] = this;
+
     init();
 
     this.network = undefined;
@@ -85,4 +89,4 @@ NeuralNetwork.TrainingModule = function(init, trainFunction)
     {
         trainFunction(this.network);
     };
-}
+};
