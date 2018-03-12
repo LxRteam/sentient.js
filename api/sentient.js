@@ -60,15 +60,6 @@ NeuralNetwork.Node = function(network, layer)
     this.bias = 0;
     
     this.weights = [];
-    this.weightSum = function()
-    {
-        let sum = 0;
-        for (let i = 0; i < this.weights.length; i++)
-        {
-            sum += this.weights[i];
-        }
-        return sum;
-    };
         
     this.value = 0;
     
