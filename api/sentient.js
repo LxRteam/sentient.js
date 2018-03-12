@@ -88,9 +88,9 @@ NeuralNetwork.TrainingModule = function(init, trainFunction, moduleId)
 {
     NeuralNetwork.Modules[moduleId] = this;
 
-    init();
-
     this.network = undefined;
+
+    init();
 
     this.train = function()
     {
