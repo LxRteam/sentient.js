@@ -10,12 +10,12 @@
 function NeuralNetwork(layerSizes)
 {
     this.layers = [];
-    
+
     this.activationFunction = function(input)
     {
         return 1/(1+Math.Pow(Math.E,-input));
     };
-        
+
     for (let i = 0; i < layerSizes.length; i++)
     {
         this.layers[i] = [];
@@ -55,14 +55,14 @@ function NeuralNetwork(layerSizes)
 }
 
 NeuralNetwork.Node = function(network, layer)
-{ 
+{
     this.layer = 0;
     this.bias = 0;
-    
+
     this.weights = [];
-        
+
     this.value = 0;
-    
+    this.weightedSum = 0;
     this.compute = function()
     {
         this.value += this.bias;
@@ -77,6 +77,7 @@ NeuralNetwork.Node = function(network, layer)
             let weight = this.weights[i];
             this.value += network.layers[this.layer-1][i].compute() * weight;
         }
+        this.weightedSum = this.value-this.bias;
         this.value = network.activationFunction(this.value);
         return this.value;
     };
