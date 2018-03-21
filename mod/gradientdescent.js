@@ -1,8 +1,8 @@
-let module = new NeuralNetwork.TrainingModule(
+new NeuralNetwork.TrainingModule(
 function()
 {
-  module.targets = [];
-  module.learningRate = 0;
+  this.targets = [];
+  this.learningRate = 0;
 },
 function(network)
 {
@@ -11,7 +11,7 @@ function(network)
   {
     let node = network.layers[network.layers.length-1][i];
     let result = node.value;
-    let target = module.targets[i];
+    let target = this.targets[i];
     node.error = target-result;
   }
 
@@ -38,14 +38,14 @@ function(network)
     for (let j = 0; j < network.layers[i].length; j++)
     {
       let node = network.layers[i][j];
-      node.bias -= module.learningRate * node.error;
+      node.bias -= this.learningRate * node.error;
       //delta rule: learningRate * lossFunction * network.activationFunction(weightedSumOfInputs) * connectionInput
       for (let k = 0; k < network.layers[i][j].weights.length; k++)
       {
         let wNode = network.layers[i-1][k];
         let wSum = 0;
 
-        network.layers[i][j].weights[k] -= module.learningRate * node.error * network.activationFunction(wNode.weightedSum) * wNode.value;
+        network.layers[i][j].weights[k] -= this.learningRate * node.error * network.activationFunction(wNode.weightedSum) * wNode.value;
       }
     }
   }
