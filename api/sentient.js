@@ -49,8 +49,8 @@ function NeuralNetwork(layerSizes)
 
     this.train = function()
     {
-        if (trainingModule)
-            trainingModule.train();
+        if (this.trainingModule)
+            this.trainingModule.train();
     };
 }
 
