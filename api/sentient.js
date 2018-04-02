@@ -28,7 +28,7 @@ function NeuralNetwork(layerSizes)
     this.compute = function(input)
     {
         let output = [];
-        for (let i = 0; i < Math.min(layers[0].length, input.length); i++)
+        for (let i = 0; i < Math.min(this.layers[0].length, input.length); i++)
         {
             this.layers[i].bias = input[i];
         }
