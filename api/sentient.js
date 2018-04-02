@@ -32,9 +32,9 @@ function NeuralNetwork(layerSizes)
         {
             this.layers[i].bias = input[i];
         }
-        for (let i = 0; i < layers[layers.length-1].length; i++)
+        for (let i = 0; i < this.layers[this.layers.length-1].length; i++)
         {
-            output[i] = layers[layers.length-1][i].compute();
+            output[i] = this.layers[this.layers.length-1][i].compute();
         }
         return output;
     };
