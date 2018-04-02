@@ -13,7 +13,7 @@ function NeuralNetwork(layerSizes)
 
     this.activationFunction = function(input)
     {
-        return 1/(1+Math.Pow(Math.E,-input));
+        return 1/(1+Math.pow(Math.E,-input));
     };
 
     for (let i = 0; i < layerSizes.length; i++)
