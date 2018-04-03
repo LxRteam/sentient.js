@@ -27,7 +27,9 @@ function(network)
     }
     for (let j = 0; j < network.layers[i-1].length; j++)
     {
-      network.layers[i-1][k].error /= network.layers[i-1][k].weightSum;
+      for (let k = 0; k < network.layers[i][j].weights.length; k++) {
+        network.layers[i-1][k].error /= network.layers[i-1][k].weightSum;
+      }
     }
   }
 
